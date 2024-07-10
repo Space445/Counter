@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince's first widget</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Prince's first widget</h2>
+
+    <div x-data="{ title: 'Hi, Prince' }">
+        <p x-text="title"></p>
+        <button x-on:click="title = 'Prince\'s potential pizza counter'">ON</button>
+        <button x-on:click="title = 'Rate it out of 10'">OFF</button>
+    </div>
+
+    <br>
+
+    <div x-data="{ message: 'Prince\'s widget' }">
+        <p x-text="message"></p>
+        <input type="text" x-model="message">
+    </div>
+
+    <br>
+
+    <div x-data="{ content: 'Raphaels first counter widget'}">
+        <div x-html="content"></div>
+    </div>
+
+    <br>
+
+    <div x-data>
+        <div x-ref="sentence">Prince's first alpine.js widget</div>
+        <button @click="$refs.sentence.innerText = 'Tell me what you think of my first widget in the white box above'">Display message</button>
+    </div>
+
+    <br>
+
+    <div x-data="{
+            count: 0,
+            increment() {
+                this.count++;
+            },
+            decrement() {
+                if (this.count > 0) {
+                    this.count--;
+                }
+            },
+            reset() {
+                this.count = 0;
+            },
+            setToMax() {
+                this.count = 50;
+            }
+        }">
+        <button @click="increment">+</button>
+        <span class="counter-display" x-text="count"></span>
+        <button @click="decrement">-</button>
+        <br>
+        <button @click="reset">Reset</button>
+        <button @click="setToMax">Max (50)</button>
+    </div>
+
+    <br>
+
+</body>
+</html>
+
